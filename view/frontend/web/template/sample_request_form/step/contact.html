@@ -1,0 +1,81 @@
+<li id="contact" class="contact-data" data-bind="fadeVisible: visible(), css: isVisible() ? '_active' : ''"
+    role="presentation">
+    <div class="step-title" translate="'Contact'" data-role="title"/>
+    <div id="sample-request-step-contact"
+         class="step-content"
+         data-role="content"
+         aria-hidden="false">
+
+        <form class="form-contact-step" data-bind="submit: setContactInformation, attr: {'data-hasrequired': $t('* Required Fields')}">
+
+            <fieldset id="contact-fieldset" class="fieldset">
+                <div class="field required">
+                    <label class="label" for="contact_name"><span data-bind="i18n: 'Name'"></span></label>
+                    <div class="control">
+                        <input class="input-text required"
+                               type="text"
+                               name="contact[name]"
+                               data-validate="{'required':true}"
+                               id="contact_name"
+                        />
+                    </div>
+                </div>
+
+
+                <div class="field required">
+                    <label class="label" for="contact_email"><span data-bind="i18n: 'Email Address'"></span></label>
+                    <div class="control">
+                        <input class="input-text"
+                               type="text"
+                               name="contact[email]"
+                               data-validate="{'required':true, 'validate-email':true}"
+                               id="contact_email"
+                        />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="contact_company"><span data-bind="i18n: 'Company'"></span></label>
+                    <div class="control">
+                        <input class="input-text"
+                               type="text"
+                               name="contact[company]"
+                               id="contact_company"
+                        />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="contact_phone_number"><span data-bind="i18n: 'Phone Number'"></span></label>
+                    <div class="control">
+                        <input class="input-text"
+                               type="text"
+                               name="contact[phone_number]"
+                               id="contact_phone_number"
+                        />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="contact_preferred_calling_hours"><span data-bind="i18n: 'Preferred calling hours'"></span></label>
+                    <div class="control">
+                        <input class="input-text"
+                               type="text"
+                               name="contact[preferred_calling_hours]"
+                               id="contact_preferred_calling_hours"
+                        />
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="actions-toolbar" id="contact-buttons-container">
+                <div class="primary">
+                    <button data-role="opc-continue" type="submit" class="button action continue primary">
+                        <span translate="'Next'"/>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</li>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">sample_request_quote_item_listing_grid.sample_request_quote_item_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>sample_request_quote_item_columns</spinner>
+        <deps>
+            <dep>sample_request_quote_item_listing_grid.sample_request_quote_item_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="sample_request_quote_item_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Infiright_SampleRequest::manage</aclResource>
+        <dataProvider class="Infiright\SampleRequest\Ui\Component\Listing\DataProvider\Grid\QuoteItemProvider" name="sample_request_quote_item_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>quote_item_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="sample_request_quote_item_columns" class="Magento\Ui\Component\Listing\Columns">
+        <selectionsColumn name="ids" sortOrder="10">
+            <settings>
+                <indexField>quote_item_id</indexField>
+            </settings>
+        </selectionsColumn>
+
+        <column name="item_request" sortOrder="40">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Item Request Name</label>
+            </settings>
+        </column>
+        <column name="item_note" sortOrder="40">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Note</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

@@ -1,0 +1,19 @@
+{
+    "name": "Infiright/sample-request",
+    "description": "Magento 2 Sample Request Form",
+    "require": {
+        "php": "~7.4.0"
+    },
+    "type": "magento2-module",
+    "version": "104.0.3",
+    "keywords": ["sample request form", "magento2"],
+    "license": "GPL-3.0",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Infiright\\SampleRequest\\": ""
+        }
+    }
+}

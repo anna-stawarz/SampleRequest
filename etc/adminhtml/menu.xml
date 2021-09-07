@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Infiright_SampleRequest::grid"
+             title="Sample Requests"
+             module="Infiright_SampleRequest"
+             sortOrder="11"
+             action="sample_request/index/grid"
+             parent="Magento_Sales::sales"
+             resource="Infiright_SampleRequest::index"
+        />
+    </menu>
+</config>

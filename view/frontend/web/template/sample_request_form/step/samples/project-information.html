@@ -1,0 +1,43 @@
+<fieldset id="sample-project-information-fieldset" class="fieldset">
+    <h3>Project Information</h3>
+
+    <div class="field">
+        <label class="label" for="quote_project_reference"><span data-bind="i18n: 'Project Reference'"></span></label>
+        <input class="input-text"
+               type="text"
+               data-bind="mageInit: {'mage/trim-input':{}}, attr: { placeholder: $t('Example: \'Kowalski Restaurant\', \'Nowak Hotel\'')}"
+               name="quote[project_reference]"
+               id="quote_project_reference"
+        />
+    </div>
+
+    <div class="field">
+        <label class="label" for="quote_installation_size"><span data-bind="i18n: 'Installation Size'"></span></label>
+        <input class="input-text"
+               type="text"
+               data-bind="mageInit: {'mage/trim-input':{}}, attr: { placeholder: $t('Enter your installation size')}"
+               name="quote[installation_size]"
+               id="quote_installation_size"
+        />
+    </div>
+
+    <div class="field">
+        <label class="label" for="quote_project_location"><span data-bind="i18n: 'Project Location'"></span></label>
+        <input class="input-text"
+               type="text"
+               data-bind="mageInit: {'mage/trim-input':{}}, attr: { placeholder: $t('Include if not in your city')}"
+               name="quote[project_location]"
+               id="quote_project_location"
+        />
+    </div>
+
+    <div class="field">
+        <label class="label" for="quote_project_schedule"><span data-bind="i18n: 'Project Schedule'"></span></label>
+        <input class="input-text"
+               type="text"
+               data-bind="mageInit: {'mage/trim-input':{}}, attr: { placeholder: $t('Example: \'Winter of 2021\', \'As soon as possible\'')}"
+               name="quote[project_schedule]"
+               id="quote_project_schedule"
+        />
+    </div>
+</fieldset>

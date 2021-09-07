@@ -1,0 +1,94 @@
+<fieldset id="shipping-options-fieldset" class="fieldset">
+    <h3>Shipping Options</h3>
+
+    <div class="field">
+        <label class="label"><span data-bind="i18n: 'Shipping Account Options'"></span></label>
+        <div class="control">
+            <input class="input-radio"
+                   type="radio"
+                   name="shipping[account_option]"
+                   id="ups"
+                   value="UPS"
+                   checked
+            />
+            <label class="label" for="ups"><span data-bind="i18n: 'UPS'"></span></label>
+
+            <input class="input-radio"
+                   type="radio"
+                   name="shipping[account_option]"
+                   id="fedex"
+                   value="FedEx"
+            />
+            <label class="label" for="fedex"><span data-bind="i18n: 'FedEx'"></span></label>
+        </div>
+    </div>
+
+    <div class="field">
+        <input type="hidden"
+               data-bind="value: toggleOwnShippingAccountOption()? 1 : 0"
+               name="own_shipping_account"
+        />
+
+        <input type="checkbox"
+               data-bind="checked: toggleOwnShippingAccountOption"
+               id="own_shipping_account"
+               class="input-checkbox"
+        />
+        <label class="label" for="own_shipping_account"><span data-bind="i18n: 'Use my own shipping account'"></span></label>
+    </div>
+
+    <div class="field" data-bind="fadeVisible: toggleOwnShippingAccountOption">
+        <label class="label" for="shipping_account_no"><span data-bind="i18n: 'Account No'"></span></label>
+        <input type="text"
+               name="shipping[account_no]"
+               data-bind="attr:{placeholder: $t('Your UPS/FedEx Account Number')}"
+               class="input-text"
+               id="shipping_account_no"
+        />
+    </div>
+
+    <div class="field" data-bind="fadeVisible: toggleOwnShippingAccountOption">
+        <label class="label" for="shipping_account_zip"><span data-bind="i18n: 'Account Zip'"></span></label>
+        <input type="text"
+               name="shipping[account_zip]"
+               data-bind="attr:{placeholder: $t('Your Account\'s Zip Code')}"
+               class="input-text"
+               id="shipping_account_zip"
+        />
+    </div>
+
+    <div class="field">
+        <label class="label"><span data-bind="i18n: 'Shipping Method'"></span></label>
+        <div class="control">
+            <input class="input-radio"
+                   type="radio"
+                   name="shipping[method_option]"
+                   id="ground"
+                   value="Ground"
+                   checked
+            />
+            <label class="label" for="ground"><span data-bind="i18n: 'Ground'"></span></label>
+
+            <input class="input-radio"
+                   type="radio"
+                   name="shipping[method_option]"
+                   id="air"
+                   value="Air"
+            />
+            <label class="label" for="air"><span data-bind="i18n: 'Air'"></span></label>
+
+            <input class="input-radio"
+                   type="radio"
+                   name="shipping[method_option]"
+                   id="overnight"
+                   value="Overnight"
+            />
+            <label class="label" for="overnight"><span data-bind="i18n: 'Overnight'"></span></label>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="shipping_additional_info"><span data-bind="i18n: 'Additional Info'"></span></label>
+        <textarea id="shipping_additional_info" rows="3" name="shipping[additional_info]" class="textarea"></textarea>
+    </div>
+</fieldset>

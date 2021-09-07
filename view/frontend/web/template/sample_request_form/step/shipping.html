@@ -1,0 +1,30 @@
+
+<li id="shipping" class="shipping-data" data-bind="fadeVisible: visible(), css: isVisible() ? '_active' : ''"
+    role="presentation">
+    <div class="step-title" translate="'Shipping'" data-role="title"/>
+    <div id="sample-request-step-shipping"
+         class="step-content"
+         data-role="content"
+         aria-hidden="false">
+
+        <form class="form-shipping-step" data-bind="submit: setShippingInformation, attr: {'data-hasrequired': $t('* Required Fields')}">
+
+            <!-- ko foreach: getRegion('shipping-address-content') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+
+            <!-- ko foreach: getRegion('shipping-options-content') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+
+            <div class="actions-toolbar" id="shipping-buttons-container">
+                <div class="primary">
+                    <button data-role="opc-continue" type="submit" class="button action continue primary">
+                        <span translate="'Next'"/>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</li>

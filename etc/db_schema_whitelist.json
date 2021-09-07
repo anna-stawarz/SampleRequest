@@ -1,0 +1,95 @@
+{
+    "sample_request": {
+        "column": {
+            "sample_request_id": true,
+            "contact_id": true,
+            "shipping_id": true,
+            "quote_id": true,
+            "created_at": true,
+            "updated_at": true,
+            "parent_contact_id": true,
+            "parent_shipping_id": true,
+            "parent_quote_id": true
+        },
+        "index": {
+            "SAMPLE_REQUEST_CONTACT_ID": true,
+            "SAMPLE_REQUEST_SHIPPING_ID": true,
+            "SAMPLE_REQUEST_QUOTE_ID": true,
+            "SAMPLE_REQUEST_PARENT_CONTACT_ID": true,
+            "SAMPLE_REQUEST_PARENT_SHIPPING_ID": true,
+            "SAMPLE_REQUEST_PARENT_QUOTE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SAMPLE_REQUEST_CONTACT_ID_SAMPLE_REQUEST_CONTACT_CONTACT_ID": true,
+            "SAMPLE_REQUEST_SHIPPING_ID_SAMPLE_REQUEST_SHIPPING_SHIPPING_ID": true,
+            "SAMPLE_REQUEST_QUOTE_ID_SAMPLE_REQUEST_QUOTE_QUOTE_ID": true,
+            "FK_DBC08ACB8FB199297C7510D970755EA6": true,
+            "SAMPLE_REQUEST_PARENT_SHPP_ID_SAMPLE_REQUEST_SHPP_SHPP_ID": true,
+            "SAMPLE_REQUEST_PARENT_QUOTE_ID_SAMPLE_REQUEST_QUOTE_QUOTE_ID": true
+        }
+    },
+    "sample_request_contact": {
+        "column": {
+            "contact_id": true,
+            "name": true,
+            "email": true,
+            "company": true,
+            "phone_number": true,
+            "preferred_calling_hours": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "sample_request_shipping": {
+        "column": {
+            "shipping_id": true,
+            "address_1": true,
+            "address_2": true,
+            "country_code": true,
+            "state_or_province": true,
+            "city": true,
+            "zip_code": true,
+            "account_option": true,
+            "account_no": true,
+            "account_zip": true,
+            "method_option": true,
+            "additional_info": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "sample_request_quote": {
+        "column": {
+            "quote_id": true,
+            "project_reference": true,
+            "installation_size": true,
+            "project_location": true,
+            "project_schedule": true,
+            "message": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "sample_request_quote_item": {
+        "column": {
+            "quote_item_id": true,
+            "quote_id": true,
+            "item_request": true,
+            "item_note": true,
+            "parent_quote_id": true
+        },
+        "index": {
+            "SAMPLE_REQUEST_QUOTE_ITEM_QUOTE_ID": true,
+            "SAMPLE_REQUEST_QUOTE_ITEM_PARENT_QUOTE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SAMPLE_REQUEST_QUOTE_ITEM_QUOTE_ID_SAMPLE_REQUEST_QUOTE_QUOTE_ID": true,
+            "FK_AA44019621AEEE30CC8483C2DE3E356B": true
+        }
+    }
+}

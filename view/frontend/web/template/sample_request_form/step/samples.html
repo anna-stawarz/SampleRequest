@@ -1,0 +1,43 @@
+<li id="samples" class="samples-data" data-bind="fadeVisible: visible(), css: isVisible() ? '_active' : ''"
+    role="presentation">
+    <div class="step-title" translate="'Samples'" data-role="title"/>
+
+    <div id="sample-request-step-samples"
+         class="step-content"
+         data-role="samples"
+         aria-hidden="false">
+
+        <form class="form-sample-step" data-bind="submit: setSampleInformation, attr: {'data-hasrequired': $t('* Required Fields')}">
+            <!-- ko foreach: getRegion('project-information-content') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+
+            <!-- ko foreach: getRegion('samples-item-content') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+
+            <fieldset id="sample-additional-info-fieldset" class="fieldset">
+                <h3>Additional Information</h3>
+                <div class="field">
+                    <label class="label" for="quote_message"><span data-bind="i18n: 'Message'"></span></label>
+                    <textarea class="textarea"
+                           type="text"
+                           data-bind="mageInit: {'mage/trim-input':{}}, attr: { placeholder: $t('Any questions?')}"
+                           name="quote[message]"
+                           id="quote_message"
+                           rows="3"
+                    ></textarea>
+                </div>
+            </fieldset>
+
+            <div class="actions-toolbar" id="samples-buttons-container">
+                <div class="primary">
+                    <button data-role="opc-continue" type="submit" class="button action continue primary">
+                        <span translate="'Finish'"/>
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</li>

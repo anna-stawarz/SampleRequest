@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="sample_request_contact" resource="default" engine="innodb" comment="Sample Request Contacts">
+        <column xsi:type="int" name="contact_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Contact ID"/>
+        <column xsi:type="varchar" name="name" nullable="false" comment="Name"/>
+        <column xsi:type="varchar" name="email" nullable="false" comment="Email"/>
+        <column xsi:type="varchar" name="company" nullable="true" comment="Company"/>
+        <column xsi:type="varchar" name="phone_number" nullable="true" comment="Phone Number"/>
+        <column xsi:type="varchar" name="preferred_calling_hours" nullable="true" comment="Preferred calling hours"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="contact_id"/>
+        </constraint>
+    </table>
+
+    <table name="sample_request_shipping" resource="default" engine="innodb" comment="Sample Request Shipping Address">
+        <column xsi:type="int" name="shipping_id" unsigned="true" nullable="false" identity="true" comment="Shipping ID"/>
+        <column xsi:type="varchar" name="address_1" nullable="true" comment="Address"/>
+        <column xsi:type="varchar" name="address_2" nullable="true" comment="Second Address"/>
+        <column xsi:type="varchar" name="country_code" nullable="true" length="3" comment="Country Code"/>
+        <column xsi:type="varchar" name="state_or_province" nullable="true" comment="State/Province"/>
+        <column xsi:type="varchar" name="city" nullable="true" comment="City"/>
+        <column xsi:type="varchar" name="zip_code" nullable="true" comment="Zip/Postal Code"/>
+        <column xsi:type="varchar" name="account_option" nullable="true" comment="Account Option"/>
+        <column xsi:type="varchar" name="account_no" nullable="true" comment="Account Number"/>
+        <column xsi:type="varchar" name="account_zip" nullable="true" comment="Account Zip"/>
+        <column xsi:type="varchar" name="method_option" nullable="true" comment="Method Option"/>
+        <column xsi:type="text" name="additional_info" nullable="true" comment="Additional info"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="shipping_id"/>
+        </constraint>
+    </table>
+
+    <table name="sample_request_quote" resource="default" engine="innodb" comment="Sample Request Quote">
+        <column xsi:type="int" name="quote_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Quote ID"/>
+        <column xsi:type="varchar" name="project_reference" nullable="true" comment="Project Reference"/>
+        <column xsi:type="varchar" name="installation_size" nullable="true" comment="Installation Size"/>
+        <column xsi:type="varchar" name="project_location" nullable="true" comment="Project Location"/>
+        <column xsi:type="varchar" name="project_schedule" nullable="true" comment="Project Schedule"/>
+        <column xsi:type="text" name="message" nullable="true" comment="Message"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="quote_id"/>
+        </constraint>
+    </table>
+
+    <table name="sample_request_quote_item" resource="default" engine="innodb" comment="Sample Request Quote Item">
+        <column xsi:type="int" name="quote_item_id" unsigned="true" nullable="false" identity="true" comment="Quote Item ID"/>
+        <column xsi:type="int" name="parent_quote_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Quote ID"/>
+        <column xsi:type="varchar" name="item_request" nullable="false" comment="Item Requested"/>
+        <column xsi:type="varchar" name="item_note" nullable="false" comment="Tile Note"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="quote_item_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" referenceId="SAMPLE_REQUEST_QUOTE_ITEM_SAMPLE_REQUEST_QUOTE" table="sample_request_quote_item"
+                    column="parent_quote_id" referenceTable="sample_request_quote" referenceColumn="quote_id" onDelete="CASCADE"/>
+        <index referenceId="SAMPLE_REQUEST_QUOTE_ITEM_SAMPLE_REQUEST_QUOTE" indexType="btree">
+            <column name="parent_quote_id"/>
+        </index>
+    </table>
+
+    <table name="sample_request" resource="default" engine="innodb" comment="Sample Request">
+        <column xsi:type="int" name="sample_request_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Sample request id"/>
+        <column xsi:type="int" name="parent_contact_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Contact ID"/>
+        <column xsi:type="int" name="parent_shipping_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Shipping ID"/>
+        <column xsi:type="int" name="parent_quote_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Quote ID"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="sample_request_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign" referenceId="SAMPLE_REQUEST_CONTACT" table="sample_request_contact"
+                    column="parent_contact_id" referenceTable="sample_request_contact" referenceColumn="contact_id" onDelete="CASCADE"/>
+        <index referenceId="SAMPLE_REQUEST_CONTACT_CONTACT_ID" indexType="btree">
+            <column name="parent_contact_id"/>
+        </index>
+
+        <constraint xsi:type="foreign" referenceId="SAMPLE_REQUEST_SHIPPING" table="sample_request_shipping"
+                    column="parent_shipping_id" referenceTable="sample_request_shipping" referenceColumn="shipping_id" onDelete="CASCADE"/>
+        <index referenceId="SAMPLE_REQUEST_SHIPPING_SHIPPING_ID" indexType="btree">
+            <column name="parent_shipping_id"/>
+        </index>
+
+        <constraint xsi:type="foreign" referenceId="SAMPLE_REQUEST_QUOTE_SAMPLE" table="sample_request_quote"
+                    column="parent_quote_id" referenceTable="sample_request_quote" referenceColumn="quote_id" onDelete="CASCADE"/>
+        <index referenceId="SAMPLE_REQUEST_QUOTE_QUOTE_ID" indexType="btree">
+            <column name="parent_quote_id"/>
+        </index>
+    </table>
+
+</schema>

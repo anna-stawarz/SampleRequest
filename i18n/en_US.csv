@@ -1,0 +1,62 @@
+"Save Sample Request","Save Sample Request"
+"Sample Request","Sample Request"
+"You saved the Sample Request.","You saved the Sample Request."
+"Something went wrong while saving the Sample Request.","Something went wrong while saving the Sample Request."
+"Sample Requests","Sample Requests"
+"Manage Sample Request","Manage Sample Request"
+"Sample Request List","Sample Request List"
+Edit,Edit
+Name,Name
+"Email Address","Email Address"
+Contact,Contact
+Next,Next
+"All Samples Request","All Samples Request"
+"Sample Request Information","Sample Request Information"
+"Sample Request Id","Sample Request Id"
+"Contact Id","Contact Id"
+"Quote Id","Quote Id"
+"Shipping Id","Shipping Id"
+"Contact Information","Contact Information"
+Email,Email
+Company,Company
+"Phone Number","Phone Number"
+"Preferred calling hours","Preferred calling hours"
+Quote,Quote
+"Project Reference","Project Reference"
+"Installation Size","Installation Size"
+"Project Location","Project Location"
+"Project Schedule","Project Schedule"
+Message,Message
+"Shipping Information","Shipping Information"
+Address,Address
+"Address 2","Address 2"
+"Country Code","Country Code"
+State/Province,State/Province
+City,City
+"Zip Code","Zip Code"
+"Account Option","Account Option"
+"Account Number","Account Number"
+"Account Zip","Account Zip"
+"Method Option","Method Option"
+"Delivery Type","Delivery Type"
+"Additional info","Additional info"
+"Customer Information","Customer Information"
+"Customer View","Customer View"
+"Account Information","Account Information"
+"If your Magento installation has multiple websites, you can edit the scope to associate the customer with a specific site.","If your Magento installation has multiple websites, you can edit the scope to associate the customer with a specific site."
+"Disable Automatic Group Change Based on VAT ID","Disable Automatic Group Change Based on VAT ID"
+"Send Welcome Email From","Send Welcome Email From"
+Addresses,Addresses
+"Default Billing Address","Default Billing Address"
+"The customer does not have default billing address","The customer does not have default billing address"
+"Default Shipping Address","Default Shipping Address"
+"The customer does not have default shipping address","The customer does not have default shipping address"
+"Add New Address","Add New Address"
+"Quote Insert","Quote Insert"
+ID,ID
+"Contact Name","Contact Name"
+"Client Company","Client Company"
+Created,Created
+Updated,Updated
+"Item Request Name","Item Request Name"
+Note,Note

@@ -1,0 +1,123 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Infiright\SampleRequest\Block\SampleRequest" name="sample_request.root" template="Infiright_SampleRequest::form/sample_request_content.phtml" cacheable="false">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="types" xsi:type="array">
+                            <item name="form.input" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">ui/form/field</item>
+                                    <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
+                                </item>
+                            </item>
+                        </item>
+                        <item name="components" xsi:type="array">
+                            <item name="sample_request" xsi:type="array">
+                                <item name="component" xsi:type="string">uiComponent</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">Infiright_SampleRequest/sample_request_form/main</item>
+                                </item>
+                                <item name="children" xsi:type="array">
+                                    <item name="errors" xsi:type="array">
+                                        <item name="component" xsi:type="string">Magento_Ui/js/view/messages</item>
+                                        <item name="displayArea" xsi:type="string">messages</item>
+                                    </item>
+                                    <item name="progressBar" xsi:type="array">
+                                        <item name="component" xsi:type="string">Infiright_SampleRequest/js/view/progress-bar</item>
+                                        <item name="displayArea" xsi:type="string">progressBar</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="deps" xsi:type="array">
+                                                <item name="0" xsi:type="string">sample_request.steps_list.contact-step</item>
+                                                <item name="1" xsi:type="string">sample_request.steps_list.shipping-step</item>
+                                                <item name="2" xsi:type="string">sample_request.steps_list.samples-step</item>
+                                            </item>
+                                        </item>
+                                    </item>
+
+                                    <item name="steps_list" xsi:type="array">
+                                        <item name="component" xsi:type="string">uiComponent</item>
+                                        <item name="displayArea" xsi:type="string">steps_list</item>
+                                        <item name="children" xsi:type="array">
+
+                                            <item name="contact-step" xsi:type="array">
+                                                <item name="component" xsi:type="string">Infiright_SampleRequest/js/view/contact-step</item>
+                                                <item name="sortOrder" xsi:type="string">1</item>
+                                            </item>
+
+                                            <item name="shipping-step" xsi:type="array">
+                                                <item name="component" xsi:type="string">Infiright_SampleRequest/js/view/shipping-step</item>
+                                                <item name="sortOrder" xsi:type="string">2</item>
+                                                <item name="children" xsi:type="array">
+                                                    <item name="shipping-options-content" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="displayArea" xsi:type="string">shipping-options-content</item>
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="shipping-options" xsi:type="array">
+                                                                <item name="component" xsi:type="string">Infiright_SampleRequest/js/view/shipping/shipping-options</item>
+                                                                <item name="displayArea" xsi:type="string">shipping-options</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="template" xsi:type="string">Infiright_SampleRequest/sample_request_form/step/shipping/shipping-options</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                    <item name="shipping-address-content" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="displayArea" xsi:type="string">shipping-address-content</item>
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="shipping-address" xsi:type="array">
+                                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                                <item name="displayArea" xsi:type="string">shipping-address</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="template" xsi:type="string">Infiright_SampleRequest/sample_request_form/step/shipping/shipping-address</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+
+                                            <item name="samples-step" xsi:type="array">
+                                                <item name="component" xsi:type="string">Infiright_SampleRequest/js/view/samples-step</item>
+                                                <item name="sortOrder" xsi:type="string">3</item>
+                                                <item name="children" xsi:type="array">
+                                                    <item name="project-information-content" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="displayArea" xsi:type="string">project-information-content</item>
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="project-information" xsi:type="array">
+                                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="template" xsi:type="string">Infiright_SampleRequest/sample_request_form/step/samples/project-information</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                    <item name="samples-item-content" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="displayArea" xsi:type="string">samples-item-content</item>
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="sample-item" xsi:type="array">
+                                                                <item name="component" xsi:type="string">Infiright_SampleRequest/js/view/samples/item-requested</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="template" xsi:type="string">Infiright_SampleRequest/sample_request_form/step/samples/item-requested</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,28 @@
+<?php
+/** @var $block \Infiright\SampleRequest\Block\SampleRequest */
+/** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */
+?>
+
+<div id="sample-request" data-bind="scope:'sample_request'" class="samplerequest-container">
+    <div class="sample-request-form">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+
+    <script type="text/x-magento-init">
+        {
+            "#sample-request": {
+                "Magento_Ui/js/core/app": <?php echo /* @noEscape */ $block->getJsLayout() ?>
+            }
+        }
+    </script>
+
+    </div>
+
+    <?php $serializedSampleRequestConfig = $block->getSerializedSampleRequestConfig();
+
+    $scriptString = <<<script
+            window.sampleRequestConfig = {$serializedSampleRequestConfig};
+script;
+    ?>
+
+    <?php echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false) ?>
+</div>

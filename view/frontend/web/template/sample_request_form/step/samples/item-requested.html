@@ -1,0 +1,41 @@
+<fieldset id="sample-item_requested-fieldset" class="fieldset">
+    <h3>Sample Request</h3>
+
+    <ul class="items" data-bind="foreach: sample_request_items">
+        <li class="request__item">
+            <div class="fields">
+                <label class="label"><span data-bind="i18n: 'Sample Name'"></span></label>
+                <input class="input-text"
+                       type="text"
+                       data-bind="attr: { placeholder: $t('Enter sample name'), name: 'quote_item[item_request][' + $index() + ']'}, value: item_name"
+                />
+
+                <label class="label"><span data-bind="i18n: 'Info'"></span></label>
+                <input class="input-text"
+                       type="text"
+                       data-bind="attr: { placeholder: $t('Notes'), name: 'quote_item[item_note][' + $index() + ']'}, value: item_note"
+                />
+            </div>
+        </li>
+    </ul>
+
+    <div class="field">
+        <label class="label" for="quote_item_item_request"><span data-bind="i18n: 'Sample Name'"></span></label>
+        <input class="input-text"
+               type="text"
+               data-bind="attr: { placeholder: $t('Enter sample name')}, value: item_name"
+               id="quote_item_item_request"
+        />
+    </div>
+
+    <div class="field">
+        <label class="label" for="quote_item_item_note"><span data-bind="i18n: 'Info'"></span></label>
+        <input class="input-text"
+               type="text"
+               data-bind="attr: { placeholder: $t('Notes')}, value: item_note"
+               id="quote_item_item_note"
+        />
+    </div>
+
+    <button type="button" class="action-add" data-bind="click: addNewItem"><span data-bind="i18n: 'Add'"></span></button>
+</fieldset>

@@ -1,0 +1,5 @@
+.grid-in-tab *, .grid-in-tab *:after, .grid-in-tab *:before {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}

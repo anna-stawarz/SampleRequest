@@ -1,0 +1,81 @@
+<fieldset id="shipping-address-fieldset" class="fieldset">
+    <h3>Shipping Address</h3>
+
+    <div class="field required">
+        <label class="label" for="shipping_address_1"><span data-bind="i18n: 'Address'"></span></label>
+        <div class="control">
+            <input class="input-text"
+                   type="text"
+                   name="shipping[address_1]"
+                   data-validate="{'validate-alphanum-with-spaces':true, 'required':true}"
+                   placeholder="Delivery address"
+                   id="shipping_address_1"
+            />
+        </div>
+    </div>
+    <div class="field required">
+        <label class="label" for="shipping_address_2"><span data-bind="i18n: 'Address line 2'"></span></label>
+        <div class="control">
+            <input class="input-text"
+                   type="text"
+                   name="shipping[address_2]"
+                   data-validate="{'validate-alphanum-with-spaces':true, 'required':true}"
+                   placeholder="Second line address"
+                   id="shipping_address_2"
+            />
+        </div>
+    </div>
+
+    <div class="field required">
+        <label class="label" for="shipping_city"><span data-bind="i18n: 'City'"></span></label>
+        <div class="control">
+            <input class="input-text"
+                   type="text"
+                   name="shipping[city]"
+                   data-validate="{'validate-alphanum-with-spaces':true, 'required':true}"
+                   placeholder="City"
+                   id="shipping_city"
+            />
+        </div>
+    </div>
+
+    <div class="field required">
+        <label class="label" for="shipping_zip_code"><span data-bind="i18n: 'Zip Code'"></span></label>
+        <div class="control">
+            <input class="input-text"
+                   type="text"
+                   data-bind="mageInit: {'mage/trim-input':{}}"
+                   name="shipping[zip_code]"
+                   data-validate="{'validate-zip-international':true, 'required':true}"
+                   placeholder="Zip or postal code"
+                   id="shipping_zip_code"
+            />
+        </div>
+    </div>
+
+        <div class="field required">
+            <label class="label" for="shipping_state_or_province"><span data-bind="i18n: 'State/Province'"></span></label>
+            <div class="control">
+                <input class="input-text"
+                       type="text"
+                       name="shipping[state_or_province]"
+                       data-validate="{'validate-alphanum-with-spaces':true, 'required':true}"
+                       placeholder="Enter your State/Province"
+                       id="shipping_state_or_province"
+                />
+            </div>
+        </div>
+
+    <div class="field required">
+        <label class="label" for="shipping_country_code"><span data-bind="i18n: 'Country'"></span></label>
+        <div class="control">
+            <input class="input-text"
+                   type="text"
+                   name="shipping[country_code]"
+                   data-validate="{'validate-alphanum-with-spaces':true, 'required':true}"
+                   placeholder="Country code"
+                   id="shipping_country_code"
+            />
+        </div>
+    </div>
+</fieldset>

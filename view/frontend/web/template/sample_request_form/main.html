@@ -1,0 +1,30 @@
+<!-- ko foreach: getRegion('progressBar') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+
+<!-- ko foreach: getRegion('messages') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+
+<div class="opc-wrapper">
+    <ol class="opc" id="sampleRequestSteps">
+        <!-- ko foreach: getRegion('steps_list') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+    </ol>
+
+    <div id="modal-sample-request" data-bind="mageInit: {
+        'Magento_Ui/js/modal/modal':{
+            'type': 'popup',
+            'title': 'Sample Request',
+            'responsive': true,
+            'buttons': [{
+                text: jQuery.mage.__('Ok'),
+                class: '',
+                click: function () {
+                    this.closeModal();
+                }
+            }]
+        }}">
+    </div>
+</div>

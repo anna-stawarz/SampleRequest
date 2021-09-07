@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Infiright\SampleRequest\Api\Data\SampleRequestContactInterface" type="Infiright\SampleRequest\Model\SampleRequestContact" />
+    <preference for="Infiright\SampleRequest\Api\Data\SampleRequestInterface" type="Infiright\SampleRequest\Model\SampleRequest" />
+    <preference for="Infiright\SampleRequest\Api\Data\SampleRequestQuoteInterface" type="Infiright\SampleRequest\Model\SampleRequestQuote" />
+    <preference for="Infiright\SampleRequest\Api\Data\SampleRequestQuoteItemInterface" type="Infiright\SampleRequest\Model\SampleRequestQuoteItem" />
+    <preference for="Infiright\SampleRequest\Api\Data\SampleRequestShippingInterface" type="Infiright\SampleRequest\Model\SampleRequestShipping" />
+
+    <preference for="Infiright\SampleRequest\Api\SampleRequestRepositoryInterface" type="Infiright\SampleRequest\Model\Repository\SampleRequestRepository" />
+    <preference for="Infiright\SampleRequest\Api\SampleRequestQuoteRepositoryInterface" type="Infiright\SampleRequest\Model\Repository\SampleRequestQuoteRepository" />
+    <preference for="Infiright\SampleRequest\Api\SampleRequestContactRepositoryInterface" type="Infiright\SampleRequest\Model\Repository\SampleRequestContactRepository" />
+    <preference for="Infiright\SampleRequest\Api\SampleRequestShippingRepositoryInterface" type="Infiright\SampleRequest\Model\Repository\SampleRequestShippingRepository" />
+
+    <preference for="Infiright\SampleRequest\Api\RequestData\SampleRequestDataInterface" type="Infiright\SampleRequest\Model\Service\SampleRequestSaveData" />
+    <preference for="Infiright\SampleRequest\Model\Service\SampleRequestManagerInterface" type="Infiright\SampleRequest\Model\Service\SampleRequestManager" />
+
+    <type name="Infiright\SampleRequest\Model\ResourceModel\SampleRequest\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">sample_request</argument>
+            <argument name="resourceModel" xsi:type="string">Infiright\SampleRequest\Model\ResourceModel\SampleRequest</argument>
+        </arguments>
+    </type>
+
+    <type name="Infiright\SampleRequest\Model\ResourceModel\SampleRequestQuoteItem\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">sample_request_quote_item</argument>
+            <argument name="resourceModel" xsi:type="string">Infiright\SampleRequest\Model\ResourceModel\SampleRequestQuoteItem</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Infiright\SampleRequest\Ui\Listing\DataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="sample_request_listing_data_source" xsi:type="string">Infiright\SampleRequest\Model\ResourceModel\SampleRequest\Grid\Collection</item>
+                <item name="sample_request_quote_item_listing_data_source" xsi:type="string">Infiright\SampleRequest\Model\ResourceModel\SampleRequestQuoteItem\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
