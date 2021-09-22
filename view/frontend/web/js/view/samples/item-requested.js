@@ -34,5 +34,5 @@ define([
             this.item_name('');
             this.item_note('');
         }
-    })
+    });
 });

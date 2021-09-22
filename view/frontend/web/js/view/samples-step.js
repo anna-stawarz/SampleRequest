@@ -6,7 +6,7 @@ define([
     'uiRegistry',
     'mage/translate',
     'Infiright_SampleRequest/js/model/step-navigator',
-    'Infiright_SampleRequest/js/model/create-sample-request',
+    'Infiright_SampleRequest/js/action/create-sample-request',
     'Infiright_SampleRequest/js/model/form-request'
 ], function (
     $,
@@ -60,7 +60,7 @@ define([
             var valid = formRequest.setFormData(this.formClass);
 
             if (valid) {
-                createSampleRequest.submitRequestForm(formRequest.getAllSampleRequestFormData());
+                createSampleRequest(formRequest.getAllSampleRequestFormData());
             }
         },
 
