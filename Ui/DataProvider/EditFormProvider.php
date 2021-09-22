@@ -67,9 +67,8 @@ class EditFormProvider extends AbstractDataProvider
             return $this->loadedData;
         }
 
-        $sampleRequest = $this->currentSampleRequest->get();
-
         /** @var SampleRequestInterface $sampleRequest */
+        $sampleRequest = $this->currentSampleRequest->get();
 
         $sampleRequestId = $sampleRequest->getId();
         $this->loadedData[] = $sampleRequestId;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Infiright\SampleRequest\Model\ResourceModel\SampleRequest\Grid;
 
 use Infiright\SampleRequest\Api\Data\SampleRequestContactInterface;

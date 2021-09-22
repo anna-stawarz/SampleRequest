@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Infiright\SampleRequest\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action;
