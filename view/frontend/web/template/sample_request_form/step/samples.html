@@ -30,6 +30,10 @@
                 </div>
             </fieldset>
 
+            <!-- ko foreach: getRegion('additional-re-captcha') -->
+                 <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+
             <div class="actions-toolbar" id="samples-buttons-container">
                 <div class="primary">
                     <button data-role="opc-continue" type="submit" class="button action continue primary">

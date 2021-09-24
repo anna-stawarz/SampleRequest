@@ -2,4 +2,12 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
 
+    <default>
+        <recaptcha_frontend>
+            <type_for>
+                <sample_request_form/>
+            </type_for>
+        </recaptcha_frontend>
+    </default>
+
 </config>

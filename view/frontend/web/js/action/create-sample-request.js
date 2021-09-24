@@ -12,6 +12,16 @@ define([
         var params = ko.toJSON(saveData);
         var modalElem = $('#modal-sample-request');
 
+        var closeModalOnSuccess = function () {
+            window.location.href = "/";
+        };
+
+        var closeModelOnFailure = function () {
+            stepNavigator.goToFirstStep();
+        }
+
+        var closeModalHandler = closeModalOnSuccess;
+
         return storage.post(
             controllerPath,
             params,
@@ -19,12 +29,9 @@ define([
         ).done(function (data) {
             modalElem.html(data.message);
 
-            modalElem.modal({
-                closed: function () {
-                    window.location.href = "/";
-                    localStorage.clear();
-                }
-            });
+            if (data.errors === true) {
+                closeModalHandler = closeModelOnFailure;
+            }
         }).fail(function (data) {
             if (data.responseJSON && data.responseJSON.hasOwnProperty('message')) {
                 modalElem.html(data.responseJSON.message);
@@ -32,12 +39,12 @@ define([
                 modalElem.html($t('Something went wrong.'));
             }
 
+            closeModalHandler = closeModelOnFailure;
+        }).always(function () {
             modalElem.modal({
-                closed: function () {
-                    stepNavigator.goToFirstStep();
-                }
+                closed: closeModalHandler
             });
-        }).always(function() {
+
             modalElem.modal('openModal');
         });
     }

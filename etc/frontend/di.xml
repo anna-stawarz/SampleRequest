@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Infiright\SampleRequest\Block\SampleRequest">
+        <arguments>
+            <argument name="layoutProcessors" xsi:type="array">
+                <item name="recaptcha" xsi:type="object">\Infiright\SampleRequest\Block\LayoutProcessor\Form\SampleRequestReCaptcha</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Infiright\SampleRequest\Observer\ReCaptchaSaveSampleRequestForm">
+        <arguments>
+            <argument name="captchaResponseResolver" xsi:type="object">\Infiright\SampleRequest\Model\Captcha\CaptchaResponseResolver</argument>
+        </arguments>
+    </type>
+
+</config>

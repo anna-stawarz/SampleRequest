@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Infiright\SampleRequest\Block;
 
+use Infiright\SampleRequest\Block\SampleRequest\LayoutProcessorInterface;
 use Magento\Framework\Data\Form\FormKey;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Serialize\SerializerInterface;
@@ -16,17 +17,45 @@ class SampleRequest extends Template
      */
     protected $formKey;
 
+    /**
+     * @var SerializerInterface
+     */
     protected $serializer;
+
+    /**
+     * @var array
+     */
+    protected $jsLayout;
+
+    /**
+     * @var array|LayoutProcessorInterface[]
+     */
+    protected $layoutProcessors;
 
     public function __construct(
         Template\Context    $context,
         FormKey             $formKey,
         SerializerInterface $serializer,
+        array               $layoutProcessors = [],
         array               $data = []
     ) {
         parent::__construct($context, $data);
         $this->formKey = $formKey;
         $this->serializer = $serializer;
+        $this->jsLayout = isset($data['jsLayout']) && is_array($data['jsLayout']) ? $data['jsLayout'] : [];
+        $this->layoutProcessors = $layoutProcessors;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getJsLayout()
+    {
+        foreach ($this->layoutProcessors as $processor) {
+            $this->jsLayout = $processor->process($this->jsLayout);
+        }
+
+        return $this->serializer->serialize($this->jsLayout);
     }
 
     /**
@@ -56,5 +85,4 @@ class SampleRequest extends Template
     {
         return 'sample-request/index/saveData';
     }
-
 }
